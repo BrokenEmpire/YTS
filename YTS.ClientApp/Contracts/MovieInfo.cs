@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Runtime.Serialization;
 
-namespace YTS.Common.Contacts
+namespace YTS.ClientApp.Contracts
 {
     [DataContract(Name = "Movie")]
-    public class Movie
+    public class MovieInfo
     {
         [DataMember(Name = "id")]
         public int ID { get; set; }
@@ -76,7 +76,7 @@ namespace YTS.Common.Contacts
         public string State { get; set; }
 
         [DataMember(Name = "torrents")]
-        public List<Torrent> Torrents { get; set; }
+        public List<TorrentInfo> Torrents { get; set; }
 
         [DataMember(Name = "date_uploaded")]
         public string Date_Uploaded { get; set; }

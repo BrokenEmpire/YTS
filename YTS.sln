@@ -3,9 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26430.16
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YTS.Common", "YTS.Common\YTS.Common.csproj", "{7DF44895-7F74-47E4-87A2-29A58F80CC02}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YTS.ConsoleApp", "YTS.ConsoleApp\YTS.ConsoleApp.csproj", "{8F01F78D-69A2-4B01-8AFD-AE5981E6D80B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YTS.ClientApp", "YTS.ClientApp\YTS.ClientApp.csproj", "{906E25A2-0ADA-42BB-B344-BED8778F28CA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,16 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{7DF44895-7F74-47E4-87A2-29A58F80CC02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7DF44895-7F74-47E4-87A2-29A58F80CC02}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7DF44895-7F74-47E4-87A2-29A58F80CC02}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7DF44895-7F74-47E4-87A2-29A58F80CC02}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8F01F78D-69A2-4B01-8AFD-AE5981E6D80B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8F01F78D-69A2-4B01-8AFD-AE5981E6D80B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8F01F78D-69A2-4B01-8AFD-AE5981E6D80B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8F01F78D-69A2-4B01-8AFD-AE5981E6D80B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{906E25A2-0ADA-42BB-B344-BED8778F28CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{906E25A2-0ADA-42BB-B344-BED8778F28CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{906E25A2-0ADA-42BB-B344-BED8778F28CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{906E25A2-0ADA-42BB-B344-BED8778F28CA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {21D3168B-79FD-4D11-B64C-F9326E177B0C}
 	EndGlobalSection
 EndGlobal

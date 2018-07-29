@@ -1,10 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Runtime.Serialization;
 
-namespace YTS.Common.Contacts
+namespace YTS.ClientApp.Contracts
 {
-    [DataContract(Name = "Data")]
-    public class Data
+    public class ResponseInfo
     {
         [DataMember(Name = "movie_count")]
         public int Movie_Count { get; set; }
@@ -16,6 +15,6 @@ namespace YTS.Common.Contacts
         public int Page_Number { get; set; }
 
         [DataMember(Name = "movies")]
-        public List<Movie> Movies { get; set; }
+        public List<MovieInfo> Movies { get; set; }
     }
 }

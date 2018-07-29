@@ -1,9 +1,9 @@
 ﻿using System.Runtime.Serialization;
 
-namespace YTS.Common.Contacts
+namespace YTS.ClientApp.Contracts
 {
     [DataContract(Name = "Meta")]
-    public class Meta
+    public class MetaInfo
     {
         [DataMember(Name = "server_time")]
         public int Server_Time { get; set; }

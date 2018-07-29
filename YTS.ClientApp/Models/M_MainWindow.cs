@@ -4,16 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace YTS.ConsoleApp
+namespace YTS.ClientApp.Models
 {
-    using Common;
-
-    class Program
+    class M_MainWindow
     {
-        static void Main(string[] args)
-        {
-
-
-        }
     }
 }

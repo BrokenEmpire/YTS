@@ -1,9 +1,9 @@
 ﻿using System.Runtime.Serialization;
 
-namespace YTS.Common.Contacts
+namespace YTS.ClientApp.Contracts
 {
     [DataContract(Name = "Torrent")]
-    public class Torrent
+    public class TorrentInfo
     {
         [DataMember(Name = "url")]
         public string Url { get; set; }
@@ -19,7 +19,7 @@ namespace YTS.Common.Contacts
 
         [DataMember(Name = "peers")]
         public int Peers { get; set; }
-    
+
         [DataMember(Name = "size")]
         public string Size { get; set; }
 
