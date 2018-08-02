@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace YTS.ClientApp.Models
 {
-    class M_MainWindow
+    using YTS.ClientApp.Base;
+
+    public class M_MainWindow : Model
     {
     }
 }
