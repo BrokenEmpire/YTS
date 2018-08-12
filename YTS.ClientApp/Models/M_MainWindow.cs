@@ -10,5 +10,6 @@ namespace YTS.ClientApp.Models
 
     public class M_MainWindow : Model
     {
+
     }
 }
