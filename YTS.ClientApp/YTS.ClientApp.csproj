@@ -58,6 +58,7 @@
     <Compile Include="Base\Command.cs" />
     <Compile Include="Base\Model.cs" />
     <Compile Include="Base\View.cs" />
+    <Compile Include="Base\IViewModel.cs" />
     <Compile Include="Base\ViewModel.cs" />
     <Compile Include="Contracts\MetaInfo.cs" />
     <Compile Include="Contracts\MovieInfo.cs" />

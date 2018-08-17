@@ -1,18 +1,12 @@
-﻿using System;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
 namespace YTS.ClientApp.Base
 {
-    public abstract class ViewModel : INotifyPropertyChanged
+    public abstract class ViewModel : IViewModel
     {
-        #region INotifyPropertyChanged Support
+        public abstract event PropertyChangedEventHandler PropertyChanged;
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected void OnPropertyChanged([CallerMemberName]string propertyName = "")
-            => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-
-        #endregion
+        public abstract void Dispose();
     }
 }
