@@ -56,29 +56,24 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Base\Command.cs" />
+    <Compile Include="Base\IRequest.cs" />
     <Compile Include="Base\Model.cs" />
-    <Compile Include="Base\View.cs" />
     <Compile Include="Base\IViewModel.cs" />
-    <Compile Include="Base\ViewModel.cs" />
     <Compile Include="Contracts\MetaInfo.cs" />
     <Compile Include="Contracts\MovieInfo.cs" />
     <Compile Include="Contracts\ResponseInfo.cs" />
     <Compile Include="Contracts\RootInfo.cs" />
     <Compile Include="Contracts\TorrentInfo.cs" />
     <Compile Include="Models\M_MainWindow.cs" />
-    <Compile Include="ViewModels\VM_MainWindow.cs" />
-    <Compile Include="Views\V_MainWindow.xaml.cs">
-      <DependentUpon>V_MainWindow.xaml</DependentUpon>
+    <Compile Include="ViewModels\MainWindow_ViewModel.cs" />
+    <Compile Include="Views\MainWindow_View.xaml.cs">
+      <DependentUpon>MainWindow_View.xaml</DependentUpon>
     </Compile>
-    <Page Include="Base\Theme.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Views\V_MainWindow.xaml">
+    <Page Include="Views\MainWindow_View.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace YTS.ClientApp.Base
 {
-    public abstract class View
+    public interface IRequest
     {
+        Uri BuildRequestUri();
     }
 }

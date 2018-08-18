@@ -6,12 +6,13 @@ namespace YTS.ClientApp
 
     public partial class App : Application
     {
+        public App() : base() => MainWindow = new MainWindow_View();
 
         protected override void OnStartup(StartupEventArgs e)
         {
-            ShutdownMode = ShutdownMode.OnMainWindowClose;
+            base.OnStartup(e);
 
-            MainWindow = new V_MainWindow();
+            ShutdownMode = ShutdownMode.OnMainWindowClose;
             MainWindow.Show();
         }
     }
