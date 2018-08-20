@@ -9,11 +9,13 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Runtime.Serialization.Json;
+using System.Windows.Input;
 
 namespace YTS.ClientApp.ViewModels
 {
     using Base;
     using Contracts;
+    using Requests;
 
     public class MainWindow_ViewModel : IViewModel
     {
@@ -22,18 +24,21 @@ namespace YTS.ClientApp.ViewModels
         private const string baseUrl = "https://yts.am/api/v2/list_movies.json";
 
         private CancellationTokenSource cancelTokenSource;
+        private readonly Command testCommand;
+
+        public ICommand TestCommand => testCommand;
 
         public MainWindow_ViewModel()
         {
             cancelTokenSource = new CancellationTokenSource();
+            testCommand = new Command(async () => await GetResponceAsync(new ListRequest()));
         }
 
-        private async Task<RootInfo> ResponceAsync(IRequest request)
+        private async Task<RootInfo> GetResponceAsync(IRequest request)
         {
             HttpWebRequest httpRequest = null;
-            HttpWebResponse httpResponse = null;
+            WebResponse httpResponse = null;
             Stream httpResponseStream = null;
-            RootInfo rootInfo = null;
 
             var jsonSerializer = new DataContractJsonSerializer(typeof(RootInfo));
 
@@ -44,10 +49,10 @@ namespace YTS.ClientApp.ViewModels
                 httpRequest.ContentType = requestContentType;
                 httpRequest.UserAgent = requestUserAgent;
 
-                httpResponse = await httpRequest.GetResponseAsync() as HttpWebResponse;
+                httpResponse = await httpRequest.GetResponseAsync();
                 httpResponseStream = httpResponse.GetResponseStream();
 
-                rootInfo = jsonSerializer.ReadObject(httpResponseStream) as RootInfo;
+                return jsonSerializer.ReadObject(httpResponseStream) as RootInfo;
             }
             finally
             {
@@ -61,8 +66,6 @@ namespace YTS.ClientApp.ViewModels
 
                 request = null;
             }
-
-            return rootInfo;
         }
 
         #region INotifyPropertyChanged Support

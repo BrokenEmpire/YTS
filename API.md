@@ -29,6 +29,7 @@ genre		String	All	Used to filter by a given genre (See http://www.imdb.com/genre
 sort_by		String (title, year, rating, peers, seeds, download_count, like_count, date_added)	date_added	Sorts the results by choosen value
 order_by		String (desc, asc)	desc	Orders the results by either Ascending or Descending order
 with_rt_ratings		Boolean	false	Returns the list with the Rotten Tomatoes rating included
+
 Examples
 URL	Description
 https://yts.am/api/v2/list_movies.json?quality=3D	Returns the latest 20 3D movies using JSON format

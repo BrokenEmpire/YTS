@@ -65,6 +65,8 @@
     <Compile Include="Contracts\RootInfo.cs" />
     <Compile Include="Contracts\TorrentInfo.cs" />
     <Compile Include="Models\M_MainWindow.cs" />
+    <Compile Include="Requests\InfoRequest.cs" />
+    <Compile Include="Requests\ListRequest.cs.cs" />
     <Compile Include="ViewModels\MainWindow_ViewModel.cs" />
     <Compile Include="Views\MainWindow_View.xaml.cs">
       <DependentUpon>MainWindow_View.xaml</DependentUpon>

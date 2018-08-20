@@ -7,6 +7,11 @@
         mc:Ignorable="d"
         Title="yts.am Browser" Height="450" Width="800">
     <Grid>
-        
+        <Button Content="Test" 
+                Margin="3" 
+                Padding="6,3" 
+                HorizontalAlignment="Left" 
+                VerticalAlignment="Top" 
+                Command="{Binding Path=TestCommand}" />
     </Grid>
 </Window>
