@@ -3,6 +3,7 @@ using System.Runtime.Serialization;
 
 namespace YTS.ClientApp.Contracts
 {
+    [DataContract(Name = "ResponseInfo")]
     public class ResponseInfo
     {
         [DataMember(Name = "movie_count")]

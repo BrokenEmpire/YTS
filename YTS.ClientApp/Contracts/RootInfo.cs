@@ -2,6 +2,7 @@
 
 namespace YTS.ClientApp.Contracts
 {
+    [DataContract(Name = "RootInfo")]
     public class RootInfo
     {
         [DataMember(Name = "status")]

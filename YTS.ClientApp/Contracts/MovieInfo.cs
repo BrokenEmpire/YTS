@@ -82,6 +82,6 @@ namespace YTS.ClientApp.Contracts
         public string Date_Uploaded { get; set; }
 
         [DataMember(Name = "date_uploaded_unix")]
-        public int Date_Uploaded_Unix { get; set; }
+        public long Date_Uploaded_Unix { get; set; }
     }
 }

@@ -24,7 +24,7 @@ namespace YTS.ClientApp.Contracts
         public string Size { get; set; }
 
         [DataMember(Name = "size_bytes")]
-        public int Size_bytes { get; set; }
+        public long Size_bytes { get; set; }
 
         [DataMember(Name = "date_uploaded")]
         public string Date_uploaded { get; set; }

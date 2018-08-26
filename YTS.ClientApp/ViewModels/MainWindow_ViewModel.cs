@@ -21,7 +21,7 @@ namespace YTS.ClientApp.ViewModels
     {
         private const string requestUserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36";
         private const string requestContentType = "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8";
-        private const string baseUrl = "https://yts.am/api/v2/list_movies.json";
+        private const string baseUrl = "https://yts.am/api/v2/list_movies.json?sort=date_added&limit=50&page=1";
 
         private CancellationTokenSource cancelTokenSource;
         private readonly Command testCommand;
@@ -31,41 +31,42 @@ namespace YTS.ClientApp.ViewModels
         public MainWindow_ViewModel()
         {
             cancelTokenSource = new CancellationTokenSource();
-            testCommand = new Command(async () => await GetResponceAsync(new ListRequest()));
+            testCommand = new Command(async () =>
+            {
+                var response = await GetResponseAsync(new ListRequest());
+
+            });
         }
 
-        private async Task<RootInfo> GetResponceAsync(IRequest request)
+        private async Task<RootInfo> GetResponseAsync(IRequest request)
         {
             HttpWebRequest httpRequest = null;
-            WebResponse httpResponse = null;
-            Stream httpResponseStream = null;
+            WebResponse webResponse = null;
+            Stream responseStream = null;
 
-            var jsonSerializer = new DataContractJsonSerializer(typeof(RootInfo));
+            var serializer = new DataContractJsonSerializer(typeof(RootInfo));
+            var result = default(RootInfo);
 
             try
             {
                 httpRequest = WebRequest.CreateHttp(request.BuildRequestUri());
-                httpRequest.Credentials = CredentialCache.DefaultCredentials;
-                httpRequest.ContentType = requestContentType;
-                httpRequest.UserAgent = requestUserAgent;
+                webResponse = await httpRequest.GetResponseAsync();
+                responseStream = webResponse.GetResponseStream();
 
-                httpResponse = await httpRequest.GetResponseAsync();
-                httpResponseStream = httpResponse.GetResponseStream();
-
-                return jsonSerializer.ReadObject(httpResponseStream) as RootInfo;
+                result = serializer.ReadObject(responseStream) as RootInfo;
             }
             finally
             {
-                jsonSerializer = null;
+                responseStream.Dispose();
+                responseStream = null;
 
-                httpResponseStream.Dispose();
-                httpResponseStream = null;
+                webResponse.Dispose();
+                webResponse = null;
 
-                httpResponse.Dispose();
-                httpResponse = null;
-
-                request = null;
+                serializer = null;
+                httpRequest = null;
             }
+            return result ?? new RootInfo();
         }
 
         #region INotifyPropertyChanged Support
