@@ -64,6 +64,7 @@
     <Compile Include="Contracts\ResponseInfo.cs" />
     <Compile Include="Contracts\RootInfo.cs" />
     <Compile Include="Contracts\TorrentInfo.cs" />
+    <Compile Include="Models\Movie_Model.cs" />
     <Compile Include="Models\M_MainWindow.cs" />
     <Compile Include="Requests\InfoRequest.cs" />
     <Compile Include="Requests\ListRequest.cs.cs" />

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.IO;
@@ -15,6 +16,8 @@ namespace YTS.ClientApp.ViewModels
 {
     using Base;
     using Contracts;
+
+    using Models;
     using Requests;
 
     public class MainWindow_ViewModel : IViewModel
@@ -23,18 +26,22 @@ namespace YTS.ClientApp.ViewModels
         private const string requestContentType = "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8";
         private const string baseUrl = "https://yts.am/api/v2/list_movies.json?sort=date_added&limit=50&page=1";
 
-        private CancellationTokenSource cancelTokenSource;
         private readonly Command testCommand;
+        private ObservableCollection<Movie_Model> movieCollection;
+
+        private CancellationTokenSource cancelTokenSource;
 
         public ICommand TestCommand => testCommand;
 
         public MainWindow_ViewModel()
         {
             cancelTokenSource = new CancellationTokenSource();
+            movieCollection = new ObservableCollection<Movie_Model>();
+
             testCommand = new Command(async () =>
             {
                 var response = await GetResponseAsync(new ListRequest());
-
+                response.Data.Movies.ToArray();
             });
         }
 
@@ -66,6 +73,7 @@ namespace YTS.ClientApp.ViewModels
                 serializer = null;
                 httpRequest = null;
             }
+
             return result ?? new RootInfo();
         }
 
@@ -92,6 +100,8 @@ namespace YTS.ClientApp.ViewModels
                         cancelTokenSource.Dispose();
                         cancelTokenSource = null;
                     }
+
+       
                 }
 
                 disposedValue = true;
