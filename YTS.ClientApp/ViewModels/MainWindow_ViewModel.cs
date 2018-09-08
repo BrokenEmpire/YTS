@@ -100,8 +100,6 @@ namespace YTS.ClientApp.ViewModels
                         cancelTokenSource.Dispose();
                         cancelTokenSource = null;
                     }
-
-       
                 }
 
                 disposedValue = true;
